@@ -2,8 +2,10 @@ import { test, expect, describe } from "vitest";
 import { Ship } from "../obj/shipFactory";
 import { findShip } from "../obj/availableShips";
 
+const destroyer = findShip("Destroyer");
+
 describe("Ship Factory", () => {
-  const ship1 = Ship(findShip("Destroyer").type, findShip("Destroyer").size);
+  const ship1 = Ship(destroyer.type, destroyer.code, destroyer.size);
   test("Ship type", () => {
     expect(ship1.type).toBe("Destroyer");
   });
