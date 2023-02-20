@@ -1,18 +1,7 @@
-export const Ship = (type, code, size) => {
-  let shipStatus = "active";
-  const health = new Array(size).fill(1);
-  const hit = (i) => {
-    health[i] = 0;
-    return health;
-  };
-  const checkSunk = () => {
-    let healthVal = health.reduce((a, b) => a + b, 0);
-    if (healthVal == 0) {
-      shipStatus = "destroyed";
-      return `${type} ${shipStatus}`;
-    } else {
-      return `${type} ${shipStatus}`;
-    }
-  };
+export const Ship = (type, code, size, health) => {
+  // make hit function --1 from health on each call
+  const hit = () => {};
+  // checkSunk to see if health is = 0
+  const checkSunk = () => {};
   return { type, code, size, health, hit, checkSunk };
 };
