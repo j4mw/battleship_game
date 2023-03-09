@@ -8,6 +8,16 @@ describe("Ship Factory", () => {
     expect(destroyer.type).toBe("Destroyer");
   });
   test("Ship size", () => {
-    expect(destroyer.size).toEqual(3);
+    expect(destroyer.size).toBe(3);
+  });
+  test("Ship hit (-1)", () => {
+    destroyer.hit();
+    expect(destroyer.getHealth()).toBe(2);
+  });
+  test("Ship sunk", () => {
+    destroyer.hit();
+    destroyer.hit();
+    destroyer.checkSunk();
+    expect(destroyer.getSunk()).toBe(true);
   });
 });
