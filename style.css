@@ -1,0 +1,62 @@
+.container {
+  display: grid;
+  width: 100vw;
+  height: 100vh;
+  grid-template-areas: ". . . . ." ". playergameboard . cpugameboard ." ". . . . .";
+  grid-template-columns: 1fr 1.5fr 0.25fr 1.5fr 1fr;
+  grid-template-rows: 1fr 2fr 1fr;
+}
+
+.grid {
+  aspect-ratio: 1;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+  background-color: rgb(128, 177, 218);
+}
+
+#cpugameboard {
+  grid-area: cpugameboard;
+}
+
+#playergameboard {
+  grid-area: playergameboard;
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px black solid;
+  aspect-ratio: 1;
+}
+
+.PB,
+.B,
+.S,
+.D,
+.C {
+  background-color: greenyellow;
+  font-weight: 800;
+}
+#cpugameboard > .PB,
+#cpugameboard > .B,
+#cpugameboard > .S,
+#cpugameboard > .D,
+#cpugameboard > .C {
+  background-color: rgb(128, 177, 218);
+  color: rgb(11, 145, 255);
+}
+
+.\30 {
+  color: rgb(128, 177, 218);
+}
+
+.\31 {
+  background-color: rgb(247, 63, 63);
+  color: rgb(247, 63, 63);
+}
+
+.\32 {
+  background-color: rgb(182, 182, 182);
+  color: rgb(182, 182, 182);
+}

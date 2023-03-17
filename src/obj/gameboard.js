@@ -1,7 +1,12 @@
-export const gameboard = () => {
+export const gameboard = (owner) => {
+  let gameboardOwner = owner;
   let gbWidth = 10;
   let gbHeight = 10;
   let gbHealth = 17;
+  let getRandomMove = () => {
+    let randX = Math.floor(Math.random() * 10);
+    let randY = Math.floor(Math.random() * 10);
+  };
   const gb = Array(gbWidth)
     .fill(0)
     .map(() => Array(gbHeight).fill(0));
@@ -22,7 +27,8 @@ export const gameboard = () => {
       if (getValue(y, x) == 0) {
         return receiveMiss(y, x);
       } else if (getValue(y, x) == 1 || getValue(y, x) == 2) {
-        return console.log("invalid");
+        console.log(`invalid move: y = ${y} x = ${x}`);
+        return false;
       } else {
         gbHealth--;
         return receiveHit(y, x);
@@ -51,6 +57,17 @@ export const gameboard = () => {
     },
     testGetValue: (y, x) => {
       return gb[y][x];
+    },
+    getOwner: () => {
+      return gameboardOwner;
+    },
+    cpuTurn: () => {
+      console.log(getRandomMove());
+    },
+    arrayToJSON: () => {
+      let JSONgb = JSON.stringify(gb);
+      JSONgb = JSON.parse(JSONgb);
+      return JSONgb;
     },
   };
 };
